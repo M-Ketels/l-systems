@@ -15,7 +15,6 @@ def json_to_dict(json_file_loc: str) -> dict:
     open_file.close()
     return json_dict
 
-
 def json_str_expansion(json_file_loc: str, iterations: int) -> str:
     config_dict = json_to_dict(json_file_loc)
     axiom = config_dict["axiom"]
