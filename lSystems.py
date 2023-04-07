@@ -1,5 +1,6 @@
 import json as json
 
+
 def main():
     axiom = "A"
     rules = {
@@ -9,17 +10,20 @@ def main():
 
     print(json_str_expansion("Examples/fractalplant.json", 5))
 
+
 def json_to_dict(json_file_loc: str) -> dict:
     open_file = open(json_file_loc, 'r')
     json_dict = json.load(open_file)
     open_file.close()
     return json_dict
 
+
 def json_str_expansion(json_file_loc: str, iterations: int) -> str:
     config_dict = json_to_dict(json_file_loc)
     axiom = config_dict["axiom"]
     rules = config_dict["rules"]
     return l_system_string_expansion(axiom, rules, iterations)
+
 
 def l_system_string_expansion(axiom: str, rules: dict, iterations: int) -> str:
     current_string = axiom

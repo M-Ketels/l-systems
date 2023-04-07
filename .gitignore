@@ -1,4 +1,5 @@
 # Initialisation of project.
 
+venv
 *.xml
 *.iml

@@ -5,7 +5,7 @@
 	"F": "FF"
     },
     "translations": {
-        "F": ["draw", 10],
+        "F": ["draw", 5],
 	"X": ["stop"],
         "+": ["angle", 25],
         "-": ["angle", -25],
