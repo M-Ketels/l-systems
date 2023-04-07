@@ -1,0 +1,15 @@
+# Fractal plant
+
+{
+    "axiom": "X",
+    "rules": {
+        "X": "F+[[X]-X]-F[-FX]+X"
+    },
+    "translations": {
+        "F": ["draw", 10],,
+        "+": ["angle", 25],
+        "-": ["angle", -25],
+        "[": ["save"],
+        "]": ["rest"]
+    }
+}
