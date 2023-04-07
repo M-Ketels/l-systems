@@ -3,7 +3,7 @@ def main():
     rules = {
         "A": "AA+[+A-A-A]-[-A+A+A]"
     }
-    print(l_system_string_expansion(axiom, rules, 2))
+    print(l_system_string_expansion(axiom, rules, 5))
 
 
 def l_system_string_expansion(axiom: str, rules: dict, iterations: int) -> str:
