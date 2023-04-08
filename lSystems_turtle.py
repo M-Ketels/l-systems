@@ -45,7 +45,7 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progre
             else:
                 draw.left(abs(value))
         elif "stop" == to_do:
-            draw.setheading(90)
+            draw.heading()
         elif "save" == to_do:
             position_stack.append(draw.pos())
             heading_stack.append(draw.heading())
