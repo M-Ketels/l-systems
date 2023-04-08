@@ -4,7 +4,7 @@
         "F": "F+F-F-F+F"
     },
     "translations": {
-        "F": ["draw", 10],
+        "F": ["draw", 3],
         "+": ["angle", 90],
         "-": ["angle", -90]
     }

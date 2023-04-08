@@ -3,7 +3,8 @@ import lSystems as lSys
 
 
 def main():
-    draw_turtle(5, "Examples/SierpinskiTriangle.json", 1000)
+    draw_turtle(5, "Examples/KochCurve.json", 1000)
+    #draw_turtle(5, "Examples/SierpinskiTriangle.json", 1000)
     #draw_turtle(6, "Examples/fractalplant.json", 1000)
 
 
@@ -20,6 +21,7 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int) -> None:
     print(translations)
 
     position_stack = []
+    heading_stack = []
 
     draw = turtle.Turtle()
     turtle.Screen()
@@ -39,11 +41,14 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int) -> None:
             draw.heading()
         elif "save" == to_do:
             position_stack.append(draw.pos())
+            heading_stack.append(draw.heading())
             #saved_pos = draw.pos()
         elif "rest" == to_do:
             draw.penup()
             popped_position = position_stack.pop()
             draw.goto(popped_position[0], popped_position[1])
+            popped_heading = heading_stack.pop()
+            draw.setheading(popped_heading)
             #draw.goto(saved_pos[0], saved_pos[1])
             draw.pendown()
     turtle.done()
