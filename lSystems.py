@@ -2,8 +2,13 @@ import json as json
 
 
 def main():
-
+    print("n=1")
     print(json_str_expansion("Examples/KochCurve.json", 1))
+    print("F+F−F−F+F")
+
+    print("n=2")
+    print(json_str_expansion("Examples/KochCurve.json", 2))
+    print("F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F") #correct string for n=2
 
 
 def json_to_dict(json_file_loc: str) -> dict:
@@ -28,6 +33,8 @@ def l_system_string_expansion(axiom: str, rules: dict, iterations: int) -> str:
         for symbol in current_string:
             if symbol in keys:
                 new_string += rules[symbol]
+            else:
+                new_string += symbol
 
         current_string = new_string
 
