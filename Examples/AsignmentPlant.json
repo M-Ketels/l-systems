@@ -1,0 +1,13 @@
+{
+    "axiom": "A",
+    "rules": {
+        "A": "AA+[+A-A-A]-[-A+A+A]"
+    },
+    "translations": {
+        "A": ["draw", 5],
+        "+": ["angle", 22.5],
+        "-": ["angle", -22.5],
+        "[": ["save"],
+        "]": ["rest"]
+    }
+}
