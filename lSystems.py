@@ -2,13 +2,8 @@ import json as json
 
 
 def main():
-    axiom = "A"
-    rules = {
-        "A": "AA+[+A-A-A]-[-A+A+A]"
-    }
-    print(l_system_string_expansion(axiom, rules, 5))
 
-    print(json_str_expansion("Examples/fractalplant.json", 5))
+    print(json_str_expansion("Examples/KochCurve.json", 1))
 
 
 def json_to_dict(json_file_loc: str) -> dict:

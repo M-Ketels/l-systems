@@ -1,0 +1,11 @@
+{
+    "axiom": "F",
+    "rules": {
+        "F": "F+F-F-F+F"
+    },
+    "translations": {
+        "F": ["draw", 10],
+        "+": ["angle", 90],
+        "-": ["angle", -90]
+    }
+}
