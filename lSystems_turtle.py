@@ -5,7 +5,8 @@ import lSystems as lSys
 def main():
     # draw_turtle(5, "Examples/KochCurve.json", 1000)
     # draw_turtle(5, "Examples/SierpinskiTriangle.json", 1000)
-    draw_turtle(6, "Examples/fractalplant.json", 1000)
+    # draw_turtle(6, "Examples/fractalplant.json", 1000)
+    draw_turtle(5, "Examples/AsignmentPlant.json", 1000)
 
 
 def trans_to_dict(json_file_loc: str) -> dict:
@@ -37,7 +38,7 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int) -> None:
             else:
                 draw.left(abs(value))
         elif "stop" == to_do:
-            draw.setheading(90)
+            draw.heading()
         elif "save" == to_do:
             position_stack.append(draw.pos())
             heading_stack.append(draw.heading())
