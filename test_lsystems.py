@@ -47,12 +47,31 @@ def test_json_fractal_plant_translations():
     assert json_dict["translations"]["]"] == ["pop"]
 
 
+####################################################
+# str expansion tests
+####################################################
 
-def test_example():
-    correct_str = "F+F-F-F+F"
-    assert ls.json_str_expansion("Examples/KochCurve.json", 1) == correct_str
+def test_str_expansion_asignment_plant0():
+    correct_str = "A"
+    assert ls.json_str_expansion("Examples/AsignmentPlant.json", 0) == correct_str
+
+def test_str_expansion_asignment_plant1():
+    correct_str = "AA+[+A-A-A]-[-A+A+A]"
+    assert ls.json_str_expansion("Examples/AsignmentPlant.json", 1) == correct_str
+
+def test_str_expansion_asignment_plant2():
+    correct_str = "AA+[+A-A-A]-[-A+A+A]AA+[+A-A-A]-[-A+A+A]+[+AA+[+A-A-A]-[-A+A+A]-AA+[+A-A-A]-[-A+A+A]-AA+[+A-A-A]-[-A+A+A]]-[-AA+[+A-A-A]-[-A+A+A]+AA+[+A-A-A]-[-A+A+A]+AA+[+A-A-A]-[-A+A+A]]"
+    assert ls.json_str_expansion("Examples/AsignmentPlant.json", 2) == correct_str
 
 
-def test_example2():
-    correct_str = "F+F-F-F+F+F+F-F-F+F-F+F-F-F+F-F+F-F-F+F+F+F-F-F+F"
-    assert ls.json_str_expansion("Examples/KochCurve.json", 2) == correct_str
+def test_str_expansion_fractal_plant0():
+    correct_str = "X"
+    assert ls.json_str_expansion("Examples/fractalplant.json", 0) == correct_str
+
+def test_str_expansion_fractal_plant1():
+    correct_str = "F+[[X]-X]-F[-FX]+X"
+    assert ls.json_str_expansion("Examples/fractalplant.json", 1) == correct_str
+
+def test_str_expansion_fractal_plant2():
+    correct_str = "FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X"
+    assert ls.json_str_expansion("Examples/fractalplant.json", 2) == correct_str
