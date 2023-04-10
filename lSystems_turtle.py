@@ -17,6 +17,8 @@ def trans_to_dict(json_file_loc: str) -> dict:
 
 
 def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progressbar=True) -> None:
+    # TODO: add 'forward' instruction
+    # TODO: add 'color' instruction
     to_draw_string = lSys.json_str_expansion(json_file_loc, iteration)
     translations = trans_to_dict(json_file_loc)
 
@@ -44,13 +46,13 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progre
                 draw.right(value)
             else:
                 draw.left(abs(value))
-        elif "stop" == to_do:
+        elif "nop" == to_do:
             draw.heading()
-        elif "save" == to_do:
+        elif "push" == to_do:
             position_stack.append(draw.pos())
             heading_stack.append(draw.heading())
             # saved_pos = draw.pos()
-        elif "rest" == to_do:
+        elif "pop" == to_do:
             draw.penup()
             popped_position = position_stack.pop()
             draw.goto(popped_position[0], popped_position[1])

@@ -2,14 +2,14 @@
     "axiom": "X",
     "rules": {
         "X": "F+[[X]-X]-F[-FX]+X",
-	"F": "FF"
+	    "F": "FF"
     },
     "translations": {
         "F": ["draw", 5],
-	"X": ["stop"],
+	    "X": ["nop"],
         "+": ["angle", 25],
         "-": ["angle", -25],
-        "[": ["save"],
-        "]": ["rest"]
+        "[": ["push"],
+        "]": ["pop"]
     }
 }
