@@ -16,6 +16,13 @@ def get_variables(json_file_loc: str) -> list:
 
 
 def make_history_file(json_file_loc: str, iterations: int) -> None:
+    """
+    adds a timestamp, the variables, the constants, the axiom, the rules and
+    the resulting string as a new line to the history file
+    :param json_file_loc: location of the config file
+    :param iterations: amount of iterations
+    :return: void
+    """
     history = open("History/history_lsystems.txt", "a")
     time = datetime.now()
     config_dict = ls.json_to_dict(json_file_loc)
@@ -34,6 +41,6 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     history.write(f"<{rules}>\t")
     history.write(f"<{translations}>\t")
     history.write(f"<{iterations}>\t")
-    history.write(f"<{resulting_string}>\t")
+    history.write(f"<{resulting_string}>\n") #needs to be newline instead of tab
     history.close()
 
