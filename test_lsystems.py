@@ -7,6 +7,7 @@ import lSystems_turtle
 To run all test functions: type "pytest" in the terminal
 """
 
+
 ####################################################
 # json parsing tests
 ####################################################
@@ -15,9 +16,11 @@ def test_json_asignment_plant_axiom():
     json_dict = ls.json_to_dict("Examples/AsignmentPlant.json")
     assert json_dict["axiom"] == "A"
 
+
 def test_json_asignment_plant_rules():
     json_dict = ls.json_to_dict("Examples/AsignmentPlant.json")
     assert json_dict["rules"]["A"] == "AA+[+A-A-A]-[-A+A+A]"
+
 
 def test_json_asignment_plant_translations():
     json_dict = ls.json_to_dict("Examples/AsignmentPlant.json")
@@ -32,10 +35,12 @@ def test_json_fractal_plant_axiom():
     json_dict = ls.json_to_dict("Examples/fractalplant.json")
     assert json_dict["axiom"] == "X"
 
+
 def test_json_fractal_plant_rules():
     json_dict = ls.json_to_dict("Examples/fractalplant.json")
     assert json_dict["rules"]["X"] == "F+[[X]-X]-F[-FX]+X"
     assert json_dict["rules"]["F"] == "FF"
+
 
 def test_json_fractal_plant_translations():
     json_dict = ls.json_to_dict("Examples/fractalplant.json")
@@ -55,9 +60,11 @@ def test_str_expansion_asignment_plant0():
     correct_str = "A"
     assert ls.json_str_expansion("Examples/AsignmentPlant.json", 0) == correct_str
 
+
 def test_str_expansion_asignment_plant1():
     correct_str = "AA+[+A-A-A]-[-A+A+A]"
     assert ls.json_str_expansion("Examples/AsignmentPlant.json", 1) == correct_str
+
 
 def test_str_expansion_asignment_plant2():
     correct_str = "AA+[+A-A-A]-[-A+A+A]AA+[+A-A-A]-[-A+A+A]+[+AA+[+A-A-A]-[-A+A+A]-AA+[+A-A-A]-[-A+A+A]-AA+[+A-A-A]-[-A+A+A]]-[-AA+[+A-A-A]-[-A+A+A]+AA+[+A-A-A]-[-A+A+A]+AA+[+A-A-A]-[-A+A+A]]"
@@ -68,9 +75,11 @@ def test_str_expansion_fractal_plant0():
     correct_str = "X"
     assert ls.json_str_expansion("Examples/fractalplant.json", 0) == correct_str
 
+
 def test_str_expansion_fractal_plant1():
     correct_str = "F+[[X]-X]-F[-FX]+X"
     assert ls.json_str_expansion("Examples/fractalplant.json", 1) == correct_str
+
 
 def test_str_expansion_fractal_plant2():
     correct_str = "FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X"
