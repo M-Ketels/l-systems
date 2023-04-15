@@ -12,8 +12,6 @@ if __name__ == "__main__":
                         default="no_export")
 
     args = parser.parse_args()
-    print("here comes the sun")
-    print(args.export)
 
     if args.export == "no_export":
         export = False
@@ -26,6 +24,6 @@ if __name__ == "__main__":
     amount_of_iters = int(input("Amount of iterations: \n"))
 
     hist.make_history_file(file_location, amount_of_iters)
-    lst.draw_turtle(amount_of_iters, file_location, 0, export, file_name)
+    lst.draw_turtle(amount_of_iters, file_location, 0,show_progressbar=True, export=export, export_file_name=file_name)
 
 
