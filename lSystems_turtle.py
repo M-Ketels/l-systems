@@ -1,6 +1,7 @@
 import turtle
 import lSystems as lSys
 import ProgressBar as pb
+import sys
 
 
 def main():
@@ -16,7 +17,7 @@ def trans_to_dict(json_file_loc: str) -> dict:
     return translations_dict
 
 
-def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progressbar=True) -> None:
+def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progressbar=True, export=False, export_file_name="export.eps") -> None:
     # TODO: add 'forward' instruction
     # TODO: add 'color' instruction
     to_draw_string = lSys.json_str_expansion(json_file_loc, iteration)
@@ -64,7 +65,15 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progre
         if show_progressbar:
             step += 1
             pb.printProgressBar(step, amount_of_chars, "drawing l-system")
+
+    if export:
+        turtle_screen = turtle.getscreen()
+        turtle_screen.getcanvas().postscript(file=export_file_name)
+
     turtle.done()
+
+    if show_progressbar:
+        sys.stdout.write("\n")  # needed to correctly setup the next line in the terminal
 
 
 if __name__ == "__main__":

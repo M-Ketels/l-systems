@@ -6,6 +6,10 @@ import lSystems_turtle
 """
 To run all test functions: type "pytest" in the terminal
 """
+# TODO: add tests for history functionality
+# TODO: add tests for incomplete/incorrect config files
+
+# TODO: add continuous integration pipeline that executes these tests in github
 
 
 ####################################################
