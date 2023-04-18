@@ -18,13 +18,13 @@ def trans_to_dict(json_file_loc: str) -> dict:
 
 
 def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progressbar=True, export=False, export_file_name="export.eps") -> None:
-    # TODO: add 'forward' instruction
-    # TODO: add 'color' instruction
+    # TODO: add documentation
     to_draw_string = lSys.json_str_expansion(json_file_loc, iteration)
     translations = trans_to_dict(json_file_loc)
 
     position_stack = []
     heading_stack = []
+    color_stack = []
 
     draw = turtle.Turtle()
     draw.setheading(90)
@@ -52,15 +52,24 @@ def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progre
         elif "push" == to_do:
             position_stack.append(draw.pos())
             heading_stack.append(draw.heading())
-            # saved_pos = draw.pos()
+            color_stack.append(draw.pencolor())
         elif "pop" == to_do:
             draw.penup()
             popped_position = position_stack.pop()
             draw.goto(popped_position[0], popped_position[1])
             popped_heading = heading_stack.pop()
             draw.setheading(popped_heading)
-            # draw.goto(saved_pos[0], saved_pos[1])
+            popped_color = color_stack.pop()
+            draw.pencolor(popped_color)
             draw.pendown()
+        elif "forward" == to_do:
+            draw.penup()
+            value = translations[char][1]
+            draw.forward(value)
+            draw.pendown()
+        elif "color" == to_do:
+            color = translations[char][1]
+            draw.pencolor(color)
 
         if show_progressbar:
             step += 1
