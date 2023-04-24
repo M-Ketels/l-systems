@@ -30,7 +30,7 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     axiom = config_dict["axiom"]
     rules = config_dict["rules"]
     translations = config_dict["translations"]
-    constants = rules.keys()
+    constants = rules.keys().tolist()
     variables = get_variables(json_file_loc)
 
     resulting_string = ls.json_str_expansion(json_file_loc, iterations)
@@ -44,3 +44,4 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     history.write(f"<{resulting_string}>\n") #needs to be newline instead of tab
     history.close()
 
+#TODO history backup
