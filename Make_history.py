@@ -1,4 +1,6 @@
 import lSystems as ls
+import os
+import time
 from datetime import datetime
 
 
@@ -41,7 +43,28 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     history.write(f"<{rules}>\t")
     history.write(f"<{translations}>\t")
     history.write(f"<{iterations}>\t")
-    history.write(f"<{resulting_string}>\n") #needs to be newline instead of tab
+    history.write(f"<{resulting_string}>\n")  # needs to be newline instead of tab
     history.close()
 
-#TODO history backup
+
+def history_backup(history_location: str) -> None:
+
+    try:
+        trial = open("~/.l-systems")
+    except FileNotFoundError:
+        os.mkdir("~/.l-systems")
+    else:
+        trial.close()
+
+    backup_number = 1
+
+    while True:
+        file_loc = "~/.l-systems/backup" + str(backup_number)
+        backup = open(file_loc, "w")
+        history = open(history_location, "r")
+        backup.write(history.read())
+        backup.close()
+        history.close()
+        backup_number += 1
+        time.sleep(3600)
+

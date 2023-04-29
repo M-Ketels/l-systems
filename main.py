@@ -3,7 +3,6 @@ import lSystems_turtle as lst
 import Make_history as hist
 import argparse
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
@@ -24,6 +23,4 @@ if __name__ == "__main__":
     amount_of_iters = int(input("Amount of iterations: \n"))
 
     hist.make_history_file(file_location, amount_of_iters)
-    lst.draw_turtle(amount_of_iters, file_location, 0,show_progressbar=True, export=export, export_file_name=file_name)
-
-
+    lst.draw_turtle(amount_of_iters, file_location, 0, show_progressbar=True, export=export, export_file_name=file_name)
