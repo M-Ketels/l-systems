@@ -32,11 +32,9 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     axiom = config_dict["axiom"]
     rules = config_dict["rules"]
     translations = config_dict["translations"]
-<<<<<<< HEAD
+    
     constants = rules.keys()
-=======
     constants = list(rules.keys())
->>>>>>> df70b09b18459aff62458017aefde831008cb858
     variables = get_variables(json_file_loc)
 
     resulting_string = ls.json_str_expansion(json_file_loc, iterations)
