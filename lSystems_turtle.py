@@ -8,7 +8,7 @@ def main():
     # draw_turtle(5, "Examples/KochCurve.json", 1000)
     # draw_turtle(5, "Examples/SierpinskiTriangle.json", 1000)
     # draw_turtle(6, "Examples/fractalplant.json", 1000)
-    draw_turtle(5, "Examples/AsignmentPlant.json", 0)
+    draw_turtle(5, "Examples/AssignmentPlant.json", 0)
 
 
 def trans_to_dict(json_file_loc: str) -> dict:

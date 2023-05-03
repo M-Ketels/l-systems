@@ -1,5 +1,5 @@
 import time
-import Make_history as hst
+import make_history as hst
 
 hst.history_backup("History/history_lsystems.txt")
 

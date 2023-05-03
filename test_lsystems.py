@@ -17,17 +17,17 @@ To run all test functions: type "pytest" in the terminal
 ####################################################
 
 def test_json_asignment_plant_axiom():
-    json_dict = ls.json_to_dict("Examples/AsignmentPlant.json")
+    json_dict = ls.json_to_dict("Examples/AssignmentPlant.json")
     assert json_dict["axiom"] == "A"
 
 
 def test_json_asignment_plant_rules():
-    json_dict = ls.json_to_dict("Examples/AsignmentPlant.json")
+    json_dict = ls.json_to_dict("Examples/AssignmentPlant.json")
     assert json_dict["rules"]["A"] == "AA+[+A-A-A]-[-A+A+A]"
 
 
 def test_json_asignment_plant_translations():
-    json_dict = ls.json_to_dict("Examples/AsignmentPlant.json")
+    json_dict = ls.json_to_dict("Examples/AssignmentPlant.json")
     assert json_dict["translations"]["A"] == ["draw", 5]
     assert json_dict["translations"]["+"] == ["angle", 22.5]
     assert json_dict["translations"]["-"] == ["angle", -22.5]
@@ -62,17 +62,17 @@ def test_json_fractal_plant_translations():
 
 def test_str_expansion_asignment_plant0():
     correct_str = "A"
-    assert ls.json_str_expansion("Examples/AsignmentPlant.json", 0) == correct_str
+    assert ls.json_str_expansion("Examples/AssignmentPlant.json", 0) == correct_str
 
 
 def test_str_expansion_asignment_plant1():
     correct_str = "AA+[+A-A-A]-[-A+A+A]"
-    assert ls.json_str_expansion("Examples/AsignmentPlant.json", 1) == correct_str
+    assert ls.json_str_expansion("Examples/AssignmentPlant.json", 1) == correct_str
 
 
 def test_str_expansion_asignment_plant2():
     correct_str = "AA+[+A-A-A]-[-A+A+A]AA+[+A-A-A]-[-A+A+A]+[+AA+[+A-A-A]-[-A+A+A]-AA+[+A-A-A]-[-A+A+A]-AA+[+A-A-A]-[-A+A+A]]-[-AA+[+A-A-A]-[-A+A+A]+AA+[+A-A-A]-[-A+A+A]+AA+[+A-A-A]-[-A+A+A]]"
-    assert ls.json_str_expansion("Examples/AsignmentPlant.json", 2) == correct_str
+    assert ls.json_str_expansion("Examples/AssignmentPlant.json", 2) == correct_str
 
 
 def test_str_expansion_fractal_plant0():

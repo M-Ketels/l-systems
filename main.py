@@ -1,6 +1,6 @@
 import lSystems as ls
 import lSystems_turtle as lst
-import Make_history as hist
+import make_history as hist
 import argparse
 
 if __name__ == "__main__":
