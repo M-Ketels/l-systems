@@ -1,5 +1,5 @@
 import time
+import Make_history as hst
 
-while True:
-	print("here")
-	time.sleep(5)
+hst.history_backup("History/history_lsystems.txt")
+
