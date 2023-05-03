@@ -51,22 +51,26 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
 
 def history_backup(history_location: str) -> None:
 
-    try:
-        trial = open("~/.l-systems")
-    except FileNotFoundError:
-        os.mkdir("~/.l-systems")
-    else:
-        trial.close()
+
+    #try:
+        #trial = open(f"""{os.getenv("HOME")}/.l-systems""")
+    #except:
+        #os.mkdir(f"""{os.getenv("HOME")}/.l-systems""")
+    #else:
+        #trial.close()
+        
+    if not os.path.exists(f"""{os.getenv("HOME")}/.l-systems"""):
+    	os.mkdir(f"""{os.getenv("HOME")}/.l-systems""")
 
     backup_number = 1
 
     while True:
-        file_loc = "~/.l-systems/backup" + str(backup_number)
-        backup = open(file_loc, "w")
+        file_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + str(backup_number)
+        backup = open(file_loc, "w+")
         history = open(history_location, "r")
         backup.write(history.read())
         backup.close()
         history.close()
         backup_number += 1
-        time.sleep(3600)
+        time.sleep(10)
 
