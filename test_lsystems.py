@@ -105,7 +105,7 @@ def test_make_history_single_test():
                       "[[X]-X]-F[-FX]+X]+FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-" \
                       "F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X>"
     hist.make_history_file(file_location, amount_of_iters)
-    lst.draw_turtle(amount_of_iters, file_location, 0)
+
     history = open("History/history_lsystems.txt", "r")
     last_hist_line = history.readlines()[-1]
     assert last_hist_line == correct_history
@@ -117,7 +117,7 @@ def test_back_up():
     amount_of_iters = 3
 
     hist.make_history_file(file_location, amount_of_iters)
-    lst.draw_turtle(amount_of_iters, file_location, 0)
+
     hist.history_backup("History/history_lsystems.txt")
     backup_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
 
