@@ -1,15 +1,14 @@
 import pytest
 
 import lSystems as ls
-import lSystems_turtle
+import lSystems_turtle as lst
+import make_history as hist
+import time
+from datetime import datetime
 
 """
 To run all test functions: type "pytest" in the terminal
 """
-# TODO: add tests for history functionality
-# TODO: add tests for incomplete/incorrect config files
-
-# TODO: add continuous integration pipeline that executes these tests in github
 
 
 ####################################################
@@ -89,6 +88,45 @@ def test_str_expansion_fractal_plant2():
     correct_str = "FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X"
     assert ls.json_str_expansion("Examples/fractalplant.json", 2) == correct_str
 
-def test_make_history_fractal_plant():
+
+def test_make_history_single_test():
+    file_location = "Examples/fractalplant.json"
+    amount_of_iters = 3
+    timer = datetime.now()
+    test_time = timer.strftime("%H:%M:%S")
+    correct_history = f"<{test_time}>	<['+', '-', '[', ']']>	<['X', 'F']>	<X>	<{'X': " \
+                                                           "'F+[[X]-X]-F[-FX]+X', 'F': 'FF'}>	<{'F': ['draw', 5], 'X': " \
+                                                           "['nop'], '+': ['angle', 25], '-': ['angle', -25], '[': ['push'], ']':" \
+                                                           " ['pop']}>	<3>	<FFFF+[[FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-F[-FX]+X]-FF" \
+                                                           "[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X]-FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]" \
+                                                           "-F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X]-FFFF[-FFFFFF+[[F+[" \
+                                                           "[X]-X]-F[-FX]+X]-F+[[X]-X]-F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+" \
+                                                           "[[X]-X]-F[-FX]+X]+FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-" \
+                                                           "F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X>"
     hist.make_history_file(file_location, amount_of_iters)
-    lst.draw_turtle(amount_of_iters, file_location, 0, show_progressbar=True, export=export, export_file_name=file_name)
+    lst.draw_turtle(amount_of_iters, file_location, 0)
+    history = open("History/history_lsystems.txt","r")
+    assert history.read() == correct_history
+    history.close()
+
+def test_back_up():
+    file_location = "Examples/fractalplant.json"
+    amount_of_iters = 3
+
+    hist.make_history_file(file_location, amount_of_iters)
+    lst.draw_turtle(amount_of_iters, file_location, 0)
+
+    lst.draw_turtle(amount_of_iters, file_location, 0)
+    backup_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
+
+
+    check_backup = open(backup_loc,"r")
+    check_hist = open("History/history_lsystems.txt","r")
+
+    assert check_backup.read() == check_hist.read()
+
+    check_hist.close()
+    check_backup.close()
+
+
+

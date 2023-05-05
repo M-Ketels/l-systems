@@ -26,9 +26,9 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     :return: void
     """
     history = open("History/history_lsystems.txt", "a")
-    time = datetime.now()
+    timer = datetime.now()
     config_dict = ls.json_to_dict(json_file_loc)
-    current_time = time.strftime("%H:%M:%S")
+    current_time = timer.strftime("%H:%M:%S")
     axiom = config_dict["axiom"]
     rules = config_dict["rules"]
     translations = config_dict["translations"]
