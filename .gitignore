@@ -5,6 +5,6 @@ lsys-venv
 *.iml
 *.pyc
 .DS_Store
+#untracked files
 History/history_lsystems.txt
-!History/README.md
 
