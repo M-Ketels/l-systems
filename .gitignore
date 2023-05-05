@@ -1,6 +1,7 @@
 # Initialisation of project.
 
-venv
+lsys-venv
 *.xml
 *.iml
 *.pyc
+.DS_Store
