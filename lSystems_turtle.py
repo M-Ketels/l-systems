@@ -12,13 +12,29 @@ def main():
 
 
 def trans_to_dict(json_file_loc: str) -> dict:
+    """
+
+    :param json_file_loc: location of the json file
+    :return: translates the json file in a python dictionary
+    """
     config_dict = lSys.json_to_dict(json_file_loc)
     translations_dict = config_dict["translations"]
     return translations_dict
 
 
 def draw_turtle(iteration: int, json_file_loc: str, draw_speed: int, show_progressbar=True, export=False, export_file_name="export.eps") -> None:
-    # TODO: add documentation
+    """
+    Function that can draw an lsystem with a given json file. It has the functionality to provide a progressbar and
+    can allow exporting of the drawn file.
+
+    :param iteration: the amount of iterations of string expansion l-system rules
+    :param json_file_loc: the location of the json file to be used
+    :param draw_speed: the draw speed of the turtle cursor given as integer
+    :param show_progressbar: boolean that determines progressbar
+    :param export: boolean that allows export
+    :param export_file_name: name of the exported file
+
+    """
     to_draw_string = lSys.json_str_expansion(json_file_loc, iteration)
     translations = trans_to_dict(json_file_loc)
 

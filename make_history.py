@@ -4,6 +4,12 @@ from datetime import datetime
 
 
 def get_variables(json_file_loc: str) -> list:
+    """
+    A function that seeks for variables in a given l-system set of rules.
+
+    :param json_file_loc: location of the json file
+    :return: returns the "variables" in the specified lsystem rules
+    """
     config_dict = ls.json_to_dict(json_file_loc)
     variables = []
     constants = config_dict["rules"].keys()
@@ -22,7 +28,7 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
     the resulting string as a new line to the history file
     :param json_file_loc: location of the config file
     :param iterations: amount of iterations
-    :return: void
+
     """
     history = open("History/history_lsystems.txt", "a")
     timer = datetime.now()
@@ -49,9 +55,15 @@ def make_history_file(json_file_loc: str, iterations: int) -> None:
 
 
 def history_backup(history_location: str) -> None:
+    """
+    A function that saves the history of the program in the hidden folder .l-systems which is located in the home
+    directory of the computer.
+
+    :param history_location: the location where the history of the program is stashed
+    """
     if not os.path.exists(f"""{os.getenv("HOME")}/.l-systems"""):
         os.mkdir(f"""{os.getenv("HOME")}/.l-systems""")
-
+    # we use the date and time of the backup creation to ensure a unique name everytime a new backup is created.
     file_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
     backup = open(file_loc, "w")
     history = open(history_location, "r")
