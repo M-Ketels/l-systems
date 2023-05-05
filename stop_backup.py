@@ -1,5 +1,6 @@
-from subprocess import check_output
+import start_backup as sb
 import os
-pid_loop = check_output(["pidof", "python3 loop.py"])
 
-os.kill(pid_loop)
+if sb.check_if_subprocess_backups_running():
+    pid = sb.find_pid_subprocess_backups()
+    os.system(f'kill {pid}')
