@@ -89,5 +89,6 @@ def test_str_expansion_fractal_plant2():
     correct_str = "FF+[[F+[[X]-X]-F[-FX]+X]-F+[[X]-X]-F[-FX]+X]-FF[-FFF+[[X]-X]-F[-FX]+X]+F+[[X]-X]-F[-FX]+X"
     assert ls.json_str_expansion("Examples/fractalplant.json", 2) == correct_str
 
-#def test_make_history_fractal_plant():
-    #correct_history = ""
+def test_make_history_fractal_plant():
+    hist.make_history_file(file_location, amount_of_iters)
+    lst.draw_turtle(amount_of_iters, file_location, 0, show_progressbar=True, export=export, export_file_name=file_name)
