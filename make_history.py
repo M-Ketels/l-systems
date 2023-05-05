@@ -1,6 +1,5 @@
 import lSystems as ls
 import os
-import time
 from datetime import datetime
 
 
@@ -53,11 +52,9 @@ def history_backup(history_location: str) -> None:
     if not os.path.exists(f"""{os.getenv("HOME")}/.l-systems"""):
         os.mkdir(f"""{os.getenv("HOME")}/.l-systems""")
 
-    while True:
-        file_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
-        backup = open(file_loc, "w")
-        history = open(history_location, "r")
-        backup.write(history.read())
-        backup.close()
-        history.close()
-        time.sleep(10)
+    file_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
+    backup = open(file_loc, "w")
+    history = open(history_location, "r")
+    backup.write(history.read())
+    backup.close()
+    history.close()

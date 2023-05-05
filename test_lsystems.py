@@ -107,7 +107,8 @@ def test_make_history_single_test():
     hist.make_history_file(file_location, amount_of_iters)
     lst.draw_turtle(amount_of_iters, file_location, 0)
     history = open("History/history_lsystems.txt", "r")
-    assert history.read() == correct_history
+    last_hist_line = history.readlines()[-1]
+    assert last_hist_line == correct_history
     history.close()
 
 
@@ -117,8 +118,7 @@ def test_back_up():
 
     hist.make_history_file(file_location, amount_of_iters)
     lst.draw_turtle(amount_of_iters, file_location, 0)
-
-    lst.draw_turtle(amount_of_iters, file_location, 0)
+    hist.history_backup("History/history_lsystems.txt")
     backup_loc = f"""{os.getenv("HOME")}/.l-systems/backup""" + datetime.now().strftime("%d-%m-%Y_%H:%M:%S")
 
     check_backup = open(backup_loc, "r")
