@@ -5,4 +5,6 @@ lsys-venv
 *.iml
 *.pyc
 .DS_Store
+History/history_lsystems.txt
 !History/README.md
+
